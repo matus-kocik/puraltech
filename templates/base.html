@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}PurAI{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body class="bg-white text-gray-800">
+        <div class="max-w-screen-xl mx-auto px-4">
+        <!-- Header -->
+        <header class="flex justify-between items-center bg-[#dff5e1]" style="height: 100px; position: relative;">
+            <div class="flex items-center" style="height: 100%; margin-left: 0;">
+              <img src="{% static 'images/logo1.png' %}" alt="PurAI" class="h-full w-auto object-contain">
+            </div>
+          
+            <!-- Hamburger button -->
+            <button id="menu-btn" class="block md:hidden p-2 focus:outline-none z-50" aria-label="Toggle menu">
+              <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"></path>
+              </svg>
+            </button>
+          
+            <!-- Navigácia na desktop -->
+            <nav id="desktop-menu" class="hidden md:flex space-x-10 text-base font-medium pr-8 pl-6 ml-10">
+              <a href="#" class="hover:text-green-700 transition">O nás</a>
+              <a href="#" class="hover:text-green-700 transition">Služby</a>
+              <a href="#" class="hover:text-green-700 transition">Informace</a>
+              <a href="#" class="hover:text-green-700 transition">Kontakt</a>
+            </nav>
+          
+            <!-- Slide-in menu (mobilné) -->
+            <nav id="mobile-menu" class="fixed top-0 right-0 h-full w-64 bg-[#dff5e1] shadow-lg transform translate-x-full transition-transform duration-300 md:hidden z-40 p-6 flex flex-col space-y-6">
+              <button id="close-btn" class="self-end p-2 focus:outline-none" aria-label="Close menu">
+                <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+              </button>
+              <a href="#" class="hover:text-green-700 transition text-lg font-medium">O nás</a>
+              <a href="#" class="hover:text-green-700 transition text-lg font-medium">Služby</a>
+              <a href="#" class="hover:text-green-700 transition text-lg font-medium">Informace</a>
+              <a href="#" class="hover:text-green-700 transition text-lg font-medium">Kontakt</a>
+            </nav>
+          </header>
+          
+          <script>
+            const menuBtn = document.getElementById('menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const closeBtn = document.getElementById('close-btn');
+          
+            menuBtn.addEventListener('click', () => {
+              mobileMenu.classList.remove('translate-x-full');
+            });
+          
+            closeBtn.addEventListener('click', () => {
+              mobileMenu.classList.add('translate-x-full');
+            });
+          </script>
+
+        <!-- Main -->
+        <main>
+            {% block content %}{% endblock %}
+        </main>
+
+        <!-- Footer -->
+        <footer class="text-center py-6 mt-12">
+            <p class="text-sm">&copy; 2025 PurAI by Matúš Kočik</p>
+        </footer>
+    </div>
+    <script src="{% static 'js/flowbite.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>
