@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Informace | PurAI{% endblock %}
+{% block content %}
+
+<!-- Ikony -->
+<section class="bg-[#dff5e1] text-center w-full h-auto">
+  <img src="{% static 'images/ikony.jpeg' %}" alt="Ikony" class="w-full h-auto object-contain" />
+</section>
+
+<!-- Chovatelská zařízení -->
+<section class="py-12 text-center">
+  <div class="md:flex md:items-center md:gap-10 max-w-screen-xl mx-auto px-0">
+    <!-- Text -->
+    <div class="md:w-2/3 text-center mb-6 md:mb-0 px-4 md:px-0">
+      <h2 class="text-2xl font-bold mb-6">Chovatelská zařízení</h2>
+      <p class="text-base mb-4">
+          K námi realizovaným chovatelským zařízením z PUR panelu jsme schopni dodat také venkovní i vnitřní
+          sestavy hliníkových voliér či výběhů pro širokou škálu chovaných druhů zvířat.
+      </p>
+      <p class="text-base mb-4">
+          Interiér stavby je většinou řešen mezistěnami z 40 mm silného PUR panelu a čelními hliníkovými rámy opatřeny dvířky a nerezovými krmnými pulty dle výběru.
+      </p>
+      <p class="text-base mb-4">
+          Na domek pak navazují voliéry venkovní, do kterých je přístup skrze výletová/vypouštěcí okna. Voliéry můžou být v různých barvách a provedeních.
+      </p>
+      <p class="text-base">
+          Ke stavbám jsme však schopni dodat také výběhy z různých plotových materiálů a sítí.
+      </p>
+    </div>
+    <!-- Obrázok -->
+    <div class="md:w-1/3 flex justify-center px-4 md:px-0">
+      <img
+        src="{% static 'images/chov-zar.jpg' %}"
+        alt="Chovatelská zařízení"
+        class="shadow-md object-cover w-full h-full"
+      />
+    </div>
+  </div>
+</section>
+
+<!-- Inovativní stavby -->
+<section class="relative w-full min-h-[500px]">
+  <!-- Obrázok na pozadí -->
+  <img
+    src="{% static 'images/inov-stav.jpg' %}"
+    alt="Inovativní stavby"
+    class="absolute inset-0 w-full h-full object-cover"
+  />
+  <!-- Overlay pre lepší kontrast -->
+  <div class="absolute inset-0 bg-black/20"></div>
+
+  <!-- Textový box -->
+  <div class="absolute bottom-8 left-8 bg-[#dff5e1] bg-opacity-90 p-6 max-w-md shadow-lg z-10">
+    <h2 class="font-bold mb-3 text-lg md:text-xl">
+      Inovativní stavby z kvalitních PUR panelů
+    </h2>
+    <p class="text-sm md:text-base leading-relaxed">
+      Objevte výhody našich řešení a kontaktujte nás pro bezplatnou konzultaci nebo cenovou nabídku. S námi je Váš projekt v těch nejlepších rukou.
+    </p>
+  </div>
+</section>
+
+<!-- Příslušenství našich staveb -->
+<section class="py-12">
+  <div class="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-x-2 gap-y-6 items-stretch">
+    <!-- Ľavý obrázok -->
+    <div class="overflow-hidden shadow-md">
+      <img src="{% static 'images/prisl-1.jpg' %}" alt="Střecha" class="w-full h-full object-cover" />
+    </div>
+
+    <!-- Text v strede -->
+    <div class="text-center px-2 flex flex-col justify-center">
+      <h2 class="text-xl font-bold mb-4">Příslušenství našich staveb</h2>
+      <p class="text-sm mb-4">
+          Součástí našich purpanelových staveb jsou vždy plastové vchodové dveře v libovolné barvě v provedení plném či se světlíkem, dále plastová okna s izolačním dvojsklem v různých velikostech, barvách a typech otvírání.
+      </p>
+      <p class="text-sm mb-4">
+          Pokud se jedná o garáž samozřejmostí jsou sekční vrata dle výběru.
+      </p>
+      <p class="text-sm mb-4">
+          Střecha je svedena do okapového systému se svodem v barvě domku.
+      </p>
+      <p class="text-sm mb-4">
+          Nově může být součástí střechy prosvětlená část, kdy je střešní PUR panel nahrazen prosvětlovacím
+          panelem z polykarbonátu. Uvnitř stavby tak vznikne více přirozeného světla což ocení především
+          chovatelé a zoologické zahrady pro exotické zvířata a rostliny umístěné uvnitř.
+      </p>
+      <p class="text-sm mt-4">
+          Chovatelské zařízení jsou navíc opatřeny výletovými okny případně šíbry, na které může navazovat tunel včetně plastových lamel pro minimalizaci úniku interiérového tepla.
+      </p>
+    </div>
+
+    <!-- Pravý obrázok -->
+    <div class="overflow-hidden shadow-md">
+      <img src="{% static 'images/prisl-2.jpg' %}" alt="Okna" class="w-full h-full object-cover" />
+    </div>
+  </div>
+</section>
+
+{% endblock %}

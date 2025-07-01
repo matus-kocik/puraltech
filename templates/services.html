@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Služby | PurAI{% endblock %}
+
+{% block content %}
+<section class="bg-[#dff5e1] py-12 px-4 md:px-20 text-center">
+  <h2 class="text-2xl font-bold mb-2">Nabízíme moderní nadčasové PUR panelové a hliníkové stavby</h2>
+  <p class="text-base text-gray-700 mb-8">
+    Komplexní řešení staveb s důrazem na kvalitu, estetiku a spokojenost našich klientů.
+  </p>
+
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+    <div class="flex flex-col bg-white shadow overflow-hidden h-[340px]">
+      <div class="h-full w-full overflow-hidden">
+        <img src="{% static 'images/sluzby-1.jpg' %}" class="w-full h-full object-cover" alt="Realizace staveb z PUR panelů" />
+      </div>
+      <div class="p-4 flex items-center justify-center h-[120px] bg-white">
+        <p class="font-semibold text-center text-base text-ellipsis overflow-hidden">Realizace staveb z PUR panelů</p>
+      </div>
+    </div>
+    <div class="flex flex-col bg-white shadow overflow-hidden h-[340px]">
+      <div class="h-full w-full overflow-hidden">
+        <img src="{% static 'images/sluzby-2.jpg' %}" class="w-full h-full object-cover" alt="Výroba kvalitních volier na míru" />
+      </div>
+      <div class="p-4 flex items-center justify-center h-[120px] bg-white">
+        <p class="font-semibold text-center text-base text-ellipsis overflow-hidden">Výroba kvalitních volier na míru</p>
+      </div>
+    </div>
+    <div class="flex flex-col bg-white shadow overflow-hidden h-[340px]">
+      <div class="h-full w-full overflow-hidden">
+        <img src="{% static 'images/sluzby-3.png' %}" class="w-full h-full object-cover" alt="Moderní efektivní skleníky" />
+      </div>
+      <div class="p-4 flex items-center justify-center h-[120px] bg-white">
+        <p class="font-semibold text-center text-base text-ellipsis overflow-hidden">Moderní efektivní skleníky</p>
+      </div>
+    </div>
+    <div class="flex flex-col bg-white shadow overflow-hidden h-[340px]">
+      <div class="h-full w-full overflow-hidden">
+        <img src="{% static 'images/sluzby-4.jpg' %}" class="w-full h-full object-cover" alt="Profesionální přístup a poradenství" />
+      </div>
+      <div class="p-4 flex items-center justify-center h-[120px] bg-white">
+        <p class="font-semibold text-center text-base text-ellipsis overflow-hidden">Profesionální přístup a poradenství</p>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

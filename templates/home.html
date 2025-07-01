@@ -2,32 +2,6 @@
 {% load static %}
 {% block title %}PurAltechnology{% endblock %}
 {% block content %}
-<!-- Hero Section -->
-<section class="relative w-full overflow-hidden h-[500px]" id="custom-carousel">
-  <div
-    id="carousel-track"
-    class="flex transition-transform duration-700 ease-in-out h-full"
-  >
-    <img
-      src="{% static 'images/car-1.jpg' %}"
-      class="w-full h-full object-cover flex-shrink-0"
-    />
-    <img
-      src="{% static 'images/car-2.png' %}"
-      class="w-full h-full object-cover flex-shrink-0"
-    />
-    <img
-      src="{% static 'images/car-3.jpg' %}"
-      class="w-full h-full object-cover flex-shrink-0"
-    />
-  </div>
-  <div
-    class="absolute bottom-8 left-8 bg-[#dff5e1] bg-opacity-90 p-6 max-w-md shadow-lg z-40 text-gray-800 text-lg font-semibold"
-  >
-    Naše firma se zabývá realizací PUR panelových staveb, moderních skleníků a
-    chovatelských zařízení.
-  </div>
-</section>
 
 <!-- Intro Sekce -->
 <section class="py-12 h-auto">
@@ -83,7 +57,7 @@
     </div>
     <div class="flex flex-col bg-white shadow overflow-hidden h-[340px]">
       <div class="h-full w-full overflow-hidden">
-        <img src="{% static 'images/sluzby-2.jpeg' %}" class="w-full h-full object-cover" />
+        <img src="{% static 'images/sluzby-2.jpg' %}" class="w-full h-full object-cover" />
       </div>
       <div class="p-4 flex items-center justify-center h-[120px] bg-white">
         <p class="font-semibold text-center text-base text-ellipsis overflow-hidden">Výroba kvalitních volier na míru</p>
@@ -250,37 +224,41 @@
   
     <div class="md:flex md:items-center md:gap-12">
       <!-- Formulár v ľavom stĺpci -->
-      <form method="post" class="md:w-1/2 space-y-4 bg-[#dff5e1] p-6" novalidate>
+      <form method="post" action="{% url 'home' %}" class="md:w-1/2 space-y-4 bg-[#dff5e1] p-6" novalidate>
         {% csrf_token %}
         {{ form.non_field_errors }}
-      
-        {{ form.name.errors }}
-        {{ form.name }}
-      
-        {{ form.email.errors }}
-        {{ form.email }}
-      
-        {{ form.subject.errors }}
-        {{ form.subject }}
-      
-        {{ form.message.errors }}
-        {{ form.message }}
-      
-        <button
-          type="submit"
-          class="px-6 py-2 bg-green-700 text-white rounded hover:bg-green-800 transition"
-        >
-          Odeslat
+    
+        <div>
+            {{ form.name.label_tag }}
+            {{ form.name }}
+            {{ form.name.errors }}
+        </div>
+        <div>
+            {{ form.email.label_tag }}
+            {{ form.email }}
+            {{ form.email.errors }}
+        </div>
+        <div>
+            {{ form.subject.label_tag }}
+            {{ form.subject }}
+            {{ form.subject.errors }}
+        </div>
+        <div>
+            {{ form.message.label_tag }}
+            {{ form.message }}
+            {{ form.message.errors }}
+        </div>
+    
+        <button type="submit" class="px-6 py-2 bg-green-700 text-white rounded hover:bg-green-800 transition">
+            Odeslat
         </button>
-      </form>
+    </form>
   
       <!-- Logo v pravom stĺpci -->
       <div class="md:w-1/2 flex justify-center">
-        <img
-          src="{% static 'images/logo1.png' %}"
-          alt="Puraltech Logo"
-          class="max-w-xs h-auto"
-        />
+        <a href="{% url 'home' %}">
+          <img src="{% static 'images/logo1.png' %}" alt="Puraltech Logo" class="max-w-xs h-auto" />
+        </a>
       </div>
     </div>
   </section>

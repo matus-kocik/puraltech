@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}O nás | PurAI{% endblock %}
+{% block content %}
+
+<!-- Intro Sekce -->
+<section class="py-12 h-auto">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+        <div class="space-y-4 text-center text-base">   
+        <h2 class="text-2xl bg-[#dff5e1] font-bold">PurAl Technology</h2>         
+        <p>
+          Jelikož se firma
+          <span class="font-bold">PurAl Technology s.r.o.</span> zabývá mimo jiné
+          výstavbou chovatelských zařízení pro exotická zvířata, jsou našimi
+          zákazníky soukromí chovatelé a zoologické zahrady. Nově jsme do našeho
+          portfolia zařadili moderní nadčasové skleníky, které berou zřetel na
+          funkčnost a efektivitu při pěstování.
+        </p>
+        <p>
+          Jsme schopni vyhovět všem vašim přáním a nebojíme se výzev. Postavíme
+          Vám zateplenou garáž nebo postavíme pavilon pro exotická zvířata. Stavby
+          jsme schopni realizovat od A po Z. Od základu, natažení inženýrských
+          sítí, výstavby a projektové dokumentace. Využití PUR panelových staveb:
+          garáž, zahradní domek, chata, dílna, letní domek s terasou, chovatelské
+          zařízení, prodejní stánek atd.
+        </p>
+        <p>Pro více informací nás neváhejte kontaktovat</p>
+        <p class="font-bold">Cenový kalkulace ZDARMA!</p>
+        <a href="#kontakt" class="inline-block mt-2 px-6 py-2 bg-green-700 text-white rounded hover:bg-green-800">Zjistit víc</a>
+      </div>
+      <img
+        src="{% static 'images/intro.jpeg' %}"
+        alt="Intro Image"
+        class="shadow-md w-full object-cover max-h-[500px]"
+      />
+    </div>
+  </section>
+
+<!-- Služby -->
+<section class="bg-[#dff5e1] py-12 px-4 md:px-20 text-center">
+  <h2 class="text-2xl font-bold mb-2">
+    Nabízíme moderní nadčasové PUR panelové a hliníkové stavby
+  </h2>
+  <p class="text-base text-gray-700 mb-8">
+    Komplexní řešení staveb s důrazem na kvalitu, estetiku a spokojenost našich
+    klientů.
+  </p>
+
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+    <div class="flex flex-col bg-white shadow overflow-hidden h-[340px]">
+      <div class="h-full w-full overflow-hidden">
+        <img src="{% static 'images/sluzby-1.jpg' %}" class="w-full h-full object-cover" />
+      </div>
+      <div class="p-4 flex items-center justify-center h-[120px] bg-white">
+        <p class="font-semibold text-center text-base text-ellipsis overflow-hidden">Realizace staveb z PUR panelů</p>
+      </div>
+    </div>
+    <div class="flex flex-col bg-white shadow overflow-hidden h-[340px]">
+      <div class="h-full w-full overflow-hidden">
+        <img src="{% static 'images/sluzby-2.jpg' %}" class="w-full h-full object-cover" />
+      </div>
+      <div class="p-4 flex items-center justify-center h-[120px] bg-white">
+        <p class="font-semibold text-center text-base text-ellipsis overflow-hidden">Výroba kvalitních volier na míru</p>
+      </div>
+    </div>
+    <div class="flex flex-col bg-white shadow overflow-hidden h-[340px]">
+      <div class="h-full w-full overflow-hidden">
+        <img src="{% static 'images/sluzby-3.png' %}" class="w-full h-full object-cover" />
+      </div>
+      <div class="p-4 flex items-center justify-center h-[120px] bg-white">
+        <p class="font-semibold text-center text-base text-ellipsis overflow-hidden">Moderní efektivní skleníky</p>
+      </div>
+    </div>
+    <div class="flex flex-col bg-white shadow overflow-hidden h-[340px]">
+      <div class="h-full w-full overflow-hidden">
+        <img src="{% static 'images/sluzby-4.jpg' %}" class="w-full h-full object-cover" />
+      </div>
+      <div class="p-4 flex items-center justify-center h-[120px] bg-white">
+        <p class="font-semibold text-center text-base text-ellipsis overflow-hidden">Profesionální přístup a poradenství</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Výhody -->
+<section class="py-12" style="min-height: 500px;">
+    <div class="md:flex md:items-stretch md:gap-10 h-full max-w-screen-xl mx-auto">
+      <div class="w-full h-full">
+        <img
+          src="{% static 'images/pur-panel.jpg' %}"
+          alt="Výhody"
+          class="shadow-md w-full h-full object-cover"
+        />
+      </div>
+      <div class="w-full text-center md:mt-0 flex flex-col justify-center px-4 md:px-0">
+        <h2 class="text-xl font-bold mb-6">
+          Proč zvolit stavbu z PUR panelu od nás?
+        </h2>
+        <p class="text-sm leading-relaxed mb-4">
+          Firma PurAl Technology se zavazuje dodávat inovativní a moderní stavby z izolačních PUR panelů. PUR panelové stavby mají výhodu především v rychlosti výstavby, ale také v moderní podobě a jsou bezúdržbové. Stěna z PUR panelu o síle 60 mm je izolačně srovnatelná se zděnou stěnu o síle 350 mm.
+        </p>
+        <p class="text-sm leading-relaxed mb-4">
+          Výhodou je rychlá výstavba domek jsme schopni namontovat za 1-3 dny dle velikosti a složitosti a také v izolaci, která je srovnatelná se zděnou stěnou, která je ovšem silnější což zabírá zbytečně moc prostoru, je složitější pro výstavbu, a hlavně je také dražší.
+        </p>
+        <p class="text-sm leading-relaxed mb-4">
+          Používáme PUR panely v základní oboustranně bílé barvě, ale také v několika barevných odstínech RAL, kdy je panel z jedné (vnitřní) strany bílý a z druhé v požadované barvě. Nejčastěji stavíme z obvodových a střešních panelů o síle 60 a 80 mm, příčky mezi voliérami pak tvoří PUR panel o síle 40 a 50 mm.
+        </p>
+        <p class="text-sm leading-relaxed">
+          Jedná se o jednoduchou, bezstarostnou, a především velmi rychlou stavbu. Zákazník si připraví nejlépe betonový základ, případně je možnost také pouze patky či zpevněnou plochu a všechno ostatní zůstává na nás.
+        </p>
+      </div>
+    </div>
+  </section>
+
+{% endblock %}
