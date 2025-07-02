@@ -67,28 +67,27 @@
           </script>
         <!-- Hero Section -->
           <section class="relative w-full overflow-hidden h-[500px]" id="custom-carousel">
-            <div
-              id="carousel-track"
-              class="flex transition-transform duration-700 ease-in-out h-full"
-            >
-              <img
-                src="{% static 'images/car-1.jpg' %}"
-                class="w-full h-full object-cover flex-shrink-0"
-              />
-              <img
-                src="{% static 'images/car-2.png' %}"
-                class="w-full h-full object-cover flex-shrink-0"
-              />
-              <img
-                src="{% static 'images/car-3.jpg' %}"
-                class="w-full h-full object-cover flex-shrink-0"
-              />
+            <div id="carousel-track" class="flex transition-transform duration-700 ease-in-out h-full">
+
+              <picture class="w-full h-full flex-shrink-0">
+                <source srcset="{% static 'images/car-1.webp' %}" type="image/webp">
+                <img src="{% static 'images/car-1.jpg' %}" class="w-full h-full object-cover" alt="Auto 1" loading="lazy">
+              </picture>
+
+              <picture class="w-full h-full flex-shrink-0">
+                <source srcset="{% static 'images/car-2.webp' %}" type="image/webp">
+                <img src="{% static 'images/car-2.png' %}" class="w-full h-full object-cover" alt="Auto 2" loading="lazy">
+              </picture>
+
+              <picture class="w-full h-full flex-shrink-0">
+                <source srcset="{% static 'images/car-3.webp' %}" type="image/webp">
+                <img src="{% static 'images/car-3.jpg' %}" class="w-full h-full object-cover" alt="Auto 3" loading="lazy">
+              </picture>
+
             </div>
-            <div
-              class="absolute bottom-8 left-8 bg-[#dff5e1] bg-opacity-90 p-6 max-w-md shadow-lg z-40 text-gray-800 text-lg font-semibold"
-            >
-              Naše firma se zabývá realizací PUR panelových staveb, moderních skleníků a
-              chovatelských zařízení.
+
+            <div class="absolute bottom-8 left-8 bg-[#dff5e1] bg-opacity-90 p-6 max-w-md shadow-lg z-40 text-gray-800 text-lg font-semibold">
+              Naše firma se zabývá realizací PUR panelových staveb, moderních skleníků a chovatelských zařízení.
             </div>
           </section>
 

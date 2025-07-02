@@ -28,11 +28,15 @@
         <p class="font-bold">Cenový kalkulace ZDARMA!</p>
         <a href="#kontakt" class="inline-block mt-2 px-6 py-2 bg-green-700 text-white rounded hover:bg-green-800">Zjistit víc</a>
       </div>
-      <img
-        src="{% static 'images/intro.jpeg' %}"
-        alt="Intro Image"
-        class="shadow-md w-full object-cover max-h-[500px]"
-      />
+      <picture>
+        <source srcset="{% static 'images/intro.webp' %}" type="image/webp">
+        <img
+          src="{% static 'images/intro.jpeg' %}"
+          alt="Intro Image"
+          class="shadow-md w-full object-cover max-h-[500px]"
+          loading="lazy"
+        />
+      </picture>
     </div>
   </section>
 
@@ -49,7 +53,10 @@
   <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
     <div class="flex flex-col bg-white shadow overflow-hidden h-[340px]">
       <div class="h-full w-full overflow-hidden">
-        <img src="{% static 'images/sluzby-1.jpg' %}" class="w-full h-full object-cover" />
+        <picture>
+          <source srcset="{% static 'images/sluzby-1.webp' %}" type="image/webp">
+          <img src="{% static 'images/sluzby-1.jpg' %}" class="w-full h-full object-cover" loading="lazy" />
+        </picture>
       </div>
       <div class="p-4 flex items-center justify-center h-[120px] bg-white">
         <p class="font-semibold text-center text-base text-ellipsis overflow-hidden">Realizace staveb z PUR panelů</p>
@@ -57,7 +64,10 @@
     </div>
     <div class="flex flex-col bg-white shadow overflow-hidden h-[340px]">
       <div class="h-full w-full overflow-hidden">
-        <img src="{% static 'images/sluzby-2.jpg' %}" class="w-full h-full object-cover" />
+        <picture>
+          <source srcset="{% static 'images/sluzby-2.webp' %}" type="image/webp">
+          <img src="{% static 'images/sluzby-2.jpg' %}" class="w-full h-full object-cover" loading="lazy" />
+        </picture>
       </div>
       <div class="p-4 flex items-center justify-center h-[120px] bg-white">
         <p class="font-semibold text-center text-base text-ellipsis overflow-hidden">Výroba kvalitních volier na míru</p>
@@ -65,7 +75,10 @@
     </div>
     <div class="flex flex-col bg-white shadow overflow-hidden h-[340px]">
       <div class="h-full w-full overflow-hidden">
-        <img src="{% static 'images/sluzby-3.png' %}" class="w-full h-full object-cover" />
+        <picture>
+          <source srcset="{% static 'images/sluzby-3.webp' %}" type="image/webp">
+          <img src="{% static 'images/sluzby-3.png' %}" class="w-full h-full object-cover" loading="lazy" />
+        </picture>
       </div>
       <div class="p-4 flex items-center justify-center h-[120px] bg-white">
         <p class="font-semibold text-center text-base text-ellipsis overflow-hidden">Moderní efektivní skleníky</p>
@@ -73,7 +86,10 @@
     </div>
     <div class="flex flex-col bg-white shadow overflow-hidden h-[340px]">
       <div class="h-full w-full overflow-hidden">
-        <img src="{% static 'images/sluzby-4.jpg' %}" class="w-full h-full object-cover" />
+        <picture>
+          <source srcset="{% static 'images/sluzby-4.webp' %}" type="image/webp">
+          <img src="{% static 'images/sluzby-4.jpg' %}" class="w-full h-full object-cover" loading="lazy" />
+        </picture>
       </div>
       <div class="p-4 flex items-center justify-center h-[120px] bg-white">
         <p class="font-semibold text-center text-base text-ellipsis overflow-hidden">Profesionální přístup a poradenství</p>
@@ -86,11 +102,15 @@
 <section class="py-12" style="min-height: 500px;">
     <div class="md:flex md:items-stretch md:gap-10 h-full max-w-screen-xl mx-auto">
       <div class="w-full h-full">
-        <img
-          src="{% static 'images/pur-panel.jpg' %}"
-          alt="Výhody"
-          class="shadow-md w-full h-full object-cover"
-        />
+        <picture>
+          <source srcset="{% static 'images/pur-panel.webp' %}" type="image/webp">
+          <img
+            src="{% static 'images/pur-panel.jpg' %}"
+            alt="Výhody"
+            class="shadow-md w-full h-full object-cover"
+            loading="lazy"
+          />
+        </picture>
       </div>
       <div class="w-full text-center md:mt-0 flex flex-col justify-center px-4 md:px-0">
         <h2 class="text-xl font-bold mb-6">
