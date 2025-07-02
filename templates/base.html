@@ -14,7 +14,7 @@
           <!-- Logo + Hamburger (ľavá časť) -->
           <div class="flex items-center h-full">
             <a href="{% url 'home' %}">
-              <img src="{% static 'images/logo1.png' %}" alt="PurAI" class="max-h-[100px] w-auto object-contain" />
+              <img src="{% static 'images/logo1.webp' %}" alt="PurAI" class="max-h-[100px] w-auto object-contain" />
             </a>
         
             <!-- Hamburger button -->
@@ -69,20 +69,11 @@
           <section class="relative w-full overflow-hidden h-[500px]" id="custom-carousel">
             <div id="carousel-track" class="flex transition-transform duration-700 ease-in-out h-full">
 
-              <picture class="w-full h-full flex-shrink-0">
-                <source srcset="{% static 'images/car-1.webp' %}" type="image/webp">
-                <img src="{% static 'images/car-1.jpg' %}" class="w-full h-full object-cover" alt="Auto 1" loading="lazy">
-              </picture>
+              <img src="{% static 'images/car-1.webp' %}" class="w-full h-full object-cover flex-shrink-0" alt="Auto 1" loading="lazy">
 
-              <picture class="w-full h-full flex-shrink-0">
-                <source srcset="{% static 'images/car-2.webp' %}" type="image/webp">
-                <img src="{% static 'images/car-2.png' %}" class="w-full h-full object-cover" alt="Auto 2" loading="lazy">
-              </picture>
+              <img src="{% static 'images/car-2.webp' %}" class="w-full h-full object-cover flex-shrink-0" alt="Auto 2" loading="lazy">
 
-              <picture class="w-full h-full flex-shrink-0">
-                <source srcset="{% static 'images/car-3.webp' %}" type="image/webp">
-                <img src="{% static 'images/car-3.jpg' %}" class="w-full h-full object-cover" alt="Auto 3" loading="lazy">
-              </picture>
+              <img src="{% static 'images/car-3.webp' %}" class="w-full h-full object-cover flex-shrink-0" alt="Auto 3" loading="lazy">
 
             </div>
 

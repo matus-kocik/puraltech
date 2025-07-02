@@ -4,10 +4,11 @@
 Makefile
 .pre-commit-config.yaml
 tools
-# Ignoruj všetky JPG, JPEG, PNG obrázky v celom projekte
+# Ignore images format jpg, png, jpeg
 **/*.jpg
 **/*.jpeg
 **/*.png
+home_test.html
 
 ### Django ###
 *.log
