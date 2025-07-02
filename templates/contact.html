@@ -8,7 +8,7 @@
         <p class="text-base">Nebojíme se výzev, pošlete poptávku, zašleme Vám nezávaznou kalkulaci ZDARMA!</p>
     </div>
 
-    <div class="md:flex md:items-center md:gap-12">
+    <div class="md:flex md:items-start md:gap-12">
         <!-- Formulár v ľavom stĺpci -->
         <form method="post" action="{% url 'contact' %}" class="max-w-lg mx-auto space-y-4 bg-[#dff5e1] p-6" novalidate>
             {% csrf_token %}
@@ -40,12 +40,20 @@
             </button>
         </form>
 
-        <!-- Logo v pravom stĺpci -->
-        <div class="md:w-1/2 flex justify-center">
+        <!-- Logo + kontaktné údaje v pravom stĺpci -->
+        <div class="md:w-1/2 flex flex-col items-center space-y-6 p-6">
             <a href="{% url 'home' %}">
-              <img src="{% static 'images/logo1.webp' %}" alt="Puraltech Logo" class="max-w-xs h-auto" loading="lazy" />
+                <img src="{% static 'images/logo1.webp' %}" alt="Puraltech Logo" class="max-w-xs h-auto" loading="lazy" />
             </a>
-          </div>
+            <div class="text-center leading-relaxed">
+                <p><strong>Dominik Svak</strong><br>+420 605 420 169</p>
+                <p><strong>Jakub Janosch</strong><br>+420 602 419 057</p>
+                <p><strong>PurAl Technology s.r.o.</strong><br>IČO: 23390786</p>
+                <p><strong>Sídlo firmy:</strong><br>Nové Lublice 65<br>Nové Lublice<br>749 01</p>
+                <p><strong>Provozovna:</strong><br>Hořejší Kunčice</p>
+                <p><strong>B.Ú. CZK:</strong> 357908644/0300<br><strong>B.Ú. EUR:</strong> CZ92 0300 0000 0003 5790 8644</p>
+            </div>
+        </div>
     </div>
 </section>
 {% endblock %}
