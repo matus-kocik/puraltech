@@ -41,7 +41,9 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     # Local apps
     "users",
-    "core"
+    "core",
+    # Third-party apps
+    "django_recaptcha",
 ]
 
 if DEBUG:
@@ -114,7 +116,8 @@ EMAIL_PORT = config("EMAIL_PORT", cast=int)
 EMAIL_USE_TLS = config("EMAIL_USE_TLS", cast=bool)
 EMAIL_HOST_USER = config("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD")
-DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+DEFAULT_FROM_EMAIL = config("DEFAULT_FROM_EMAIL")
+CONTACT_RECEIVER_EMAIL = config("CONTACT_RECEIVER_EMAIL")
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
@@ -138,7 +141,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
 
-LANGUAGE_CODE = "en-us"
+LANGUAGE_CODE = "cs"
 
 TIME_ZONE = "UTC"
 
@@ -163,3 +166,13 @@ MEDIA_ROOT = BASE_DIR / "media"
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# Recaptcha settings
+RECAPTCHA_PUBLIC_KEY = config("RECAPTCHA_SITE_KEY")
+RECAPTCHA_PRIVATE_KEY = config("RECAPTCHA_SECRET_KEY")
+
+# Security headers
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+SECURE_BROWSER_XSS_FILTER = True
+SECURE_CONTENT_TYPE_NOSNIFF = True

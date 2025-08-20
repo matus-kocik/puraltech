@@ -1,0 +1,16 @@
+Dobrý den {{ name }},
+
+děkujeme, že jste nás kontaktoval(a) prostřednictvím webového formuláře na stránkách PurAl Technology s.r.o.
+
+Vaše zpráva byla úspěšně přijata a v nejbližší době se Vám ozveme.
+
+--------------------------------------------------
+📝 Shrnutí Vaší zprávy:
+
+Předmět: {{ subject }}
+
+Zpráva:
+{{ message }}
+--------------------------------------------------
+
+Tento e-mail slouží jako potvrzení, že jsme Vaši zprávu obdrželi.

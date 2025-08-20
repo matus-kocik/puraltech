@@ -7,9 +7,28 @@
     <link rel="icon" href="{% static 'images/logo1.ico' %}" type="image/x-icon" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1016873180466291');
+    fbq('track', 'PageView');
+    </script>
+    <noscript>
+        <img height="1" width="1" style="display:none"
+              src="https://www.facebook.com/tr?id=1016873180466291&ev=PageView&noscript=1"/>
+    </noscript>
+    <!-- End Meta Pixel Code -->
 </head>
 <body class="bg-white text-gray-800">
-        <div class="max-w-screen-xl mx-auto px-4">
+    <div class="max-w-screen-xl mx-auto px-4">
         <!-- Header -->
         <header class="flex justify-between items-center bg-[#dff5e1]" style="height: 100px; position: relative; padding-right: 1rem; padding-left: 0;">
           <!-- Logo + Hamburger (ľavá časť) -->
@@ -52,8 +71,17 @@
             <a href="{% url 'contact' %}" class="hover:text-green-700 transition text-lg font-medium">Kontakt</a>
           </nav>
         </header>
+
+        <!-- Messages -->
+        {% if messages %}
+          <div class="max-w-screen-xl mx-auto px-4 mt-4">
+            {% for message in messages %}
+              <div class="p-3 rounded bg-[#dff5e1] text-gray-800">{{ message }}</div>
+            {% endfor %}
+          </div>
+        {% endif %}
           
-          <script>
+        <script>
             const menuBtn = document.getElementById('menu-btn');
             const mobileMenu = document.getElementById('mobile-menu');
             const closeBtn = document.getElementById('close-btn');
@@ -65,23 +93,19 @@
             closeBtn.addEventListener('click', () => {
               mobileMenu.classList.add('translate-x-full');
             });
-          </script>
+        </script>
+
         <!-- Hero Section -->
-          <section class="relative w-full overflow-hidden h-[500px]" id="custom-carousel">
+        <section class="relative w-full overflow-hidden h-[500px]" id="custom-carousel">
             <div id="carousel-track" class="flex transition-transform duration-700 ease-in-out h-full">
-
               <img src="{% static 'images/car-1.webp' %}" class="w-full h-full object-cover flex-shrink-0" alt="Auto 1" loading="lazy">
-
               <img src="{% static 'images/car-2.webp' %}" class="w-full h-full object-cover flex-shrink-0" alt="Auto 2" loading="lazy">
-
               <img src="{% static 'images/car-3.webp' %}" class="w-full h-full object-cover flex-shrink-0" alt="Auto 3" loading="lazy">
-
             </div>
-
             <div class="absolute bottom-8 left-8 bg-[#dff5e1] bg-opacity-90 p-6 max-w-md shadow-lg z-40 text-gray-800 text-lg font-semibold">
               Naše firma se zabývá realizací PUR panelových staveb, moderních skleníků a chovatelských zařízení.
             </div>
-          </section>
+        </section>
 
         <!-- Main -->
         <main>
@@ -93,6 +117,8 @@
             <p class="text-sm">&copy; 2025 PurAI by Matúš Kočik</p>
         </footer>
     </div>
+
+    {% block extra_js %}{% endblock %}
     <script src="{% static 'js/flowbite.min.js' %}"></script>
     <script src="{% static 'js/main.js' %}"></script>
 </body>

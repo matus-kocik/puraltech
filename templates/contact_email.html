@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <title>Nová zpráva z kontaktního formuláře</title>
+  <meta name="color-scheme" content="light only">
+  <style>
+    body { margin:0; padding:0; background:#dff5e1; color:#1f2937; font-family:ui-sans-serif,system-ui,sans-serif; line-height:1.6; }
+    .wrap { max-width:700px; margin:0 auto; padding:24px; }
+    .card { background:#fff; border-radius:12px; padding:24px; box-shadow:0 4px 10px rgba(0,0,0,.08); }
+    h2 { margin:0 0 16px; color:#166534; font-size:24px; }
+    h3 { margin:0 0 12px; color:#15803d; font-size:18px; }
+    p  { margin:0 0 8px; font-size:16px; }
+    .section { background:#dcfce7; border-radius:12px; padding:16px; margin:0 0 16px; }
+    .footer { margin-top:16px; padding-top:12px; border-top:1px solid #e5e7eb; color:#6b7280; font-size:14px; }
+    .pre { white-space:pre-wrap; word-wrap:break-word; }
+    strong { color:#065f46; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <h2>📩 Nová zpráva z kontaktního formuláře</h2>
+
+      <div class="section">
+        <h3>👤 Odesílatel</h3>
+        <p><strong>Jméno:</strong> {{ name }}</p>
+        <p><strong>E‑mail:</strong> {{ email }}</p>
+      </div>
+
+      <div class="section">
+        <h3>📝 Detaily zprávy</h3>
+        <p><strong>Předmět:</strong> {{ subject }}</p>
+        <p><strong>Zpráva:</strong></p>
+        <p class="pre">{{ message }}</p>
+      </div>
+
+      <div class="footer">
+        Tato zpráva byla odeslána z kontaktního formuláře na webu <strong>PurAl Technology s.r.o.</strong>.
+      </div>
+    </div>
+  </div>
+</body>
+</html>

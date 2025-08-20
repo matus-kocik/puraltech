@@ -242,29 +242,44 @@
 
   <div class="md:flex md:items-start md:gap-12">
       <!-- Formulár v ľavom stĺpci -->
-      <form method="post" action="{% url 'contact' %}" class="max-w-lg mx-auto space-y-4 bg-[#dff5e1] p-6" novalidate>
+      <form method="post" action="{% url 'home' %}" class="max-w-lg mx-auto space-y-4 bg-[#dff5e1] p-6" novalidate>
           {% csrf_token %}
           {{ form.non_field_errors }}
       
           <div>
               {{ form.name.label_tag }}
               {{ form.name }}
+              <p id="name-error" class="text-red-600 text-sm mt-1"></p>
               {{ form.name.errors }}
           </div>
           <div>
               {{ form.email.label_tag }}
               {{ form.email }}
+              <p id="email-error" class="text-red-600 text-sm mt-1"></p>
               {{ form.email.errors }}
           </div>
           <div>
               {{ form.subject.label_tag }}
               {{ form.subject }}
+              <p id="subject-error" class="text-red-600 text-sm mt-1"></p>
               {{ form.subject.errors }}
           </div>
           <div>
               {{ form.message.label_tag }}
               {{ form.message }}
+              <p id="message-error" class="text-red-600 text-sm mt-1"></p>
               {{ form.message.errors }}
+          </div>
+
+          <!-- Honeypot (skryté pole) -->
+          <div style="display:none;">
+              {{ form.honeypot }}
+          </div>
+
+          <!-- reCAPTCHA -->
+          <div class="mt-2">
+              {{ form.captcha }}
+              {{ form.captcha.errors }}
           </div>
       
           <button type="submit" class="px-6 py-2 bg-green-700 text-white rounded hover:bg-green-800 transition">
@@ -288,4 +303,13 @@
       </div>
   </div>
 </section>
+{% endblock %}
+
+{% block extra_js %}
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  {% if debug %}
+    <script src="{% static 'js/form-validation-contact.js' %}"></script>
+  {% else %}
+    <script src="{% static 'js/form-validation-contact.min.js' %}"></script>
+  {% endif %}
 {% endblock %}
