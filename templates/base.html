@@ -76,22 +76,31 @@
           <div class="max-w-screen-xl mx-auto px-4 mt-4">
             {% for message in messages %}
               <div class="p-3 rounded bg-[#dff5e1] text-gray-800">{{ message }}</div>
+
+              {% if "success" in message.tags %}
+                <script>
+                  if (typeof fbq === "function" && !window.__leadTracked) {
+                    try { fbq('track', 'Lead'); } catch (e) {}
+                    window.__leadTracked = true;
+                  }
+                </script>
+              {% endif %}
             {% endfor %}
           </div>
         {% endif %}
-          
+
         <script>
-            const menuBtn = document.getElementById('menu-btn');
-            const mobileMenu = document.getElementById('mobile-menu');
-            const closeBtn = document.getElementById('close-btn');
-          
-            menuBtn.addEventListener('click', () => {
-              mobileMenu.classList.remove('translate-x-full');
-            });
-          
-            closeBtn.addEventListener('click', () => {
-              mobileMenu.classList.add('translate-x-full');
-            });
+          const menuBtn = document.getElementById('menu-btn');
+          const mobileMenu = document.getElementById('mobile-menu');
+          const closeBtn = document.getElementById('close-btn');
+
+          menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('translate-x-full');
+          });
+
+          closeBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('translate-x-full');
+          });
         </script>
 
         <!-- Hero Section -->
