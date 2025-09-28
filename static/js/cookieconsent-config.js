@@ -77,15 +77,15 @@
         });
       }
 
-      // Analytics → GA4 (ready when you have G‑ID)
+      // Analytics → GA4 (runs only after analytics consent)
       if (ok.has('analytics')) {
         if (window.__trackingLoaded.ga && typeof window.gtag === 'function') {
           // gtag.js already present (e.g., via AW): just configure GA4
-          gtag('config', 'G-XXXXXXX'); // TODO: replace with your GA4 ID
+          gtag('config', 'G-EBBS6EMRRT');
           gtag('consent', 'update', { analytics_storage: 'granted' });
         } else {
-          // If GA4 will be used standalone (without AW), load it like this:
-          // loadGoogleTag('G-XXXXXXX', { analytics_storage: 'granted' }); // TODO: replace with GA4 ID if needed
+          // Load GA4 standalone when Ads (AW) is not loaded
+          loadGoogleTag('G-EBBS6EMRRT', { analytics_storage: 'granted' });
         }
         updateGoogleConsent({ analytics_storage: 'granted' });
       } else {
