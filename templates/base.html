@@ -9,6 +9,26 @@
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <!-- CookieConsent CSS (core) -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@3.1.0/dist/cookieconsent.css">
+
+    <!-- Google Ads (AW) placeholders -->
+    <script type="text/plain" data-cc="marketing" data-src="https://www.googletagmanager.com/gtag/js?id=AW-17512040775"></script>
+    <script type="text/plain" data-cc="marketing" id="aw-inline-setup">
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){ dataLayer.push(arguments); }
+      gtag('consent','default',{ad_user_data:'denied',ad_personalization:'denied',ad_storage:'denied',analytics_storage:'denied'});
+      gtag('js', new Date());
+      gtag('config','AW-17512040775');
+    </script>
+
+    <!-- Google Analytics 4 (GA4) placeholders -->
+    <script type="text/plain" data-cc="analytics" data-src="https://www.googletagmanager.com/gtag/js?id=G-EBBS6EMRRT"></script>
+    <script type="text/plain" data-cc="analytics" id="ga4-inline-setup">
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){ dataLayer.push(arguments); }
+      gtag('consent','default',{ad_user_data:'denied',ad_personalization:'denied',ad_storage:'denied',analytics_storage:'denied'});
+      gtag('js', new Date());
+      gtag('config','G-EBBS6EMRRT');
+    </script>
 </head>
 <body class="bg-white text-gray-800">
     <div class="max-w-screen-xl mx-auto px-4">
