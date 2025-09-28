@@ -1,3 +1,223 @@
-.cc--modal{border-radius:12px}
-.cc--modal .cm__body{background:#dff5e1;color:#243b2e}
-.cc--modal .cm__btns .cm__btn{border-radius:10px}
+/* =============================
+   CookieConsent v3 – Custom CSS
+   Purpose: align banner + modal with site styling,
+   improve contrast, spacing, a11y focus states.
+   Safe selectors (cc-/cm-/pm- prefixes) per v3 docs.
+   ============================= */
+
+/* Root modal container (both consent + preferences modals) */
+.cc--modal {
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  z-index: 2147483647;
+}
+
+/* Consent modal body area */
+.cc--modal .cm__body {
+  background: #dff5e1;
+  color: #243b2e;
+}
+
+/* Title + description tweaks */
+.cc--modal .cm__title {
+  font-weight: 700;
+  line-height: 1.25;
+  margin-bottom: 0.25rem;
+}
+.cc--modal .cm__desc {
+  line-height: 1.55;
+}
+
+/* Button row and buttons */
+.cc--modal .cm__btns {
+  gap: 0.5rem;
+}
+.cc--modal .cm__btns .cm__btn {
+  border-radius: 10px;
+  padding: 0.6rem 1rem;
+  font-weight: 600;
+  transition: transform 0.06s ease, background-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+.cc--modal .cm__btns .cm__btn:active {
+  transform: translateY(1px);
+}
+
+/* Primary (accept all) */
+.cc--modal .cm__btns .cm__btn--accept {
+  background: #16a34a;
+  color: #fff;
+  border: 1px solid #148a40;
+}
+.cc--modal .cm__btns .cm__btn--accept:hover {
+  background: #128a3f;
+}
+.cc--modal .cm__btns .cm__btn--accept:focus-visible {
+  outline: 3px solid #86efac;
+  outline-offset: 2px;
+}
+
+/* Secondary (open settings) */
+.cc--modal .cm__btns .cm__btn--secondary {
+  background: #ffffff;
+  color: #1f2937;
+  border: 1px solid #d1d5db;
+}
+.cc--modal .cm__btns .cm__btn--secondary:hover {
+  background: #f9fafb;
+}
+.cc--modal .cm__btns .cm__btn--secondary:focus-visible {
+  outline: 3px solid #bfdbfe;
+  outline-offset: 2px;
+}
+
+/* Link styling inside texts */
+.cc--modal a {
+  color: #065f46;
+  text-decoration: underline;
+}
+.cc--modal a:hover {
+  text-decoration: none;
+}
+
+/* =============================
+   Preferences modal (settings)
+   ============================= */
+/* Container */
+.cc--pm {
+  border-radius: 12px;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.18);
+}
+
+/* Header */
+.cc--pm .pm__title {
+  font-weight: 800;
+  margin-bottom: 0.25rem;
+}
+.cc--pm .pm__desc {
+  color: #374151;
+  line-height: 1.6;
+}
+
+/* Sections */
+.cc--pm .pm__section {
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 1rem;
+  margin: 0.75rem 0;
+  background: #fff;
+}
+.cc--pm .pm__section .section__title {
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+.cc--pm .pm__section .section__desc {
+  color: #4b5563;
+  line-height: 1.55;
+}
+
+/* Buttons in preferences modal */
+.cc--pm .pm__btns {
+  gap: 0.5rem;
+}
+.cc--pm .pm__btn {
+  border-radius: 10px;
+  padding: 0.6rem 1rem;
+  font-weight: 600;
+  border: 1px solid #d1d5db;
+  background: #fff;
+  color: #1f2937;
+  transition: background-color 0.2s ease;
+}
+.cc--pm .pm__btn:hover {
+  background: #f9fafb;
+}
+.cc--pm .pm__btn:focus-visible {
+  outline: 3px solid #bfdbfe;
+  outline-offset: 2px;
+}
+
+/* Save / accept-all emphasis */
+.cc--pm .pm__btn--save,
+.cc--pm .pm__btn--accept {
+  background: #16a34a;
+  color: #fff;
+  border-color: #148a40;
+}
+.cc--pm .pm__btn--save:hover,
+.cc--pm .pm__btn--accept:hover {
+  background: #128a3f;
+}
+
+/* Cookie tables inside sections (optional, if used) */
+.cc--pm table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0.5rem;
+}
+.cc--pm th,
+.cc--pm td {
+  border: 1px solid #e5e7eb;
+  padding: 0.5rem;
+  text-align: left;
+  font-size: 0.875rem;
+}
+.cc--pm th {
+  background: #f9fafb;
+  font-weight: 700;
+}
+
+/* Accessibility: stronger focus ring for any interactive element */
+.cc--modal button:focus-visible,
+.cc--pm button:focus-visible,
+.cc--pm a:focus-visible {
+  outline: 3px solid #60a5fa;
+  outline-offset: 2px;
+}
+
+/* Responsive tweak for small screens */
+@media (max-width: 420px) {
+  .cc--modal {
+    border-radius: 10px;
+  }
+  .cc--pm {
+    border-radius: 10px;
+  }
+  .cc--pm .pm__section {
+    padding: 0.75rem;
+  }
+}
+
+/* Dark mode (prefers-color-scheme) */
+@media (prefers-color-scheme: dark) {
+  .cc--modal .cm__body {
+    background: #173a2a;
+    color: #e5f5eb;
+  }
+  .cc--modal .cm__btns .cm__btn--secondary {
+    background: #111827;
+    color: #e5e7eb;
+    border-color: #374151;
+  }
+  .cc--modal .cm__btns .cm__btn--secondary:hover {
+    background: #0f172a;
+  }
+  .cc--pm {
+    background: #0b1220;
+  }
+  .cc--pm .pm__section {
+    background: #111827;
+    border-color: #374151;
+  }
+  .cc--pm .pm__section .section__desc {
+    color: #9ca3af;
+  }
+  .cc--pm th {
+    background: #0f172a;
+    color: #e5e7eb;
+  }
+  .cc--pm th,
+  .cc--pm td {
+    border-color: #374151;
+  }
+}

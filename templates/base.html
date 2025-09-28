@@ -107,13 +107,15 @@
         <!-- Footer -->
         <footer class="text-center py-6 mt-12">
             <p class="text-sm">&copy; 2025 PurAI by Matúš Kočik</p>
+            <div class="mt-2">
+                <a href="#" role="button" aria-label="Otevřít nastavení cookies" class="js-open-cookie-settings underline hover:no-underline">Nastavení cookies</a>
+            </div>
         </footer>
     </div>
 
     {% block extra_js %}{% endblock %}
     <script src="{% static 'js/flowbite.min.js' %}"></script>
     <script src="{% static 'js/main.js' %}"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@3.1.0/dist/cookieconsent.umd.js"></script>
     <script src="{% static 'js/cookieconsent-config.js' %}"></script>
 </body>
 </html>
