@@ -10,7 +10,7 @@
             return;
         }
 
-        window.__trackingLoaded = window.__trackingLoaded || { pixel: false };
+        window.__trackingLoaded = window.__trackingLoaded || { pixel: false, ga: false };
 
         const loadMetaPixel = (pixelId) => {
             if (window.__trackingLoaded.pixel) return;
@@ -36,6 +36,34 @@
             window.__trackingLoaded.pixel = true;
             console.log('[CC] Meta Pixel spustený');
         };
+        const loadGoogleTag = (tagId, grants) => {
+            if (window.__trackingLoaded.ga) return;
+
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            window.gtag = gtag;
+
+            gtag('consent', 'default', {
+                ad_user_data: 'denied',
+                ad_personalization: 'denied',
+                ad_storage: 'denied',
+                analytics_storage: 'denied'
+            });
+
+            const s = document.createElement('script');
+            s.async = true;
+            s.src = `https://www.googletagmanager.com/gtag/js?id=${tagId}`;
+            document.head.appendChild(s);
+
+            gtag('js', new Date());
+            gtag('config', tagId);
+
+
+            gtag('consent', 'update', grants);
+
+            window.__trackingLoaded.ga = true;
+            console.log('[CC] Google Tag loaded', tagId, grants);
+        };
 
         // CookieConsent config and init
         CookieConsent.run({
@@ -50,7 +78,7 @@
                     cs: {
                         consentModal: {
                             title: 'Používáme cookies 🍪',
-                            description: 'Nezbytné cookies používáme vždy. Marketingové (např. Meta Pixel) spustíme až po vašem souhlasu.',
+                            description: 'Nezbytné cookies používáme vždy. Marketingové spouštíme až po vašem souhlasu.',
                             acceptAllBtn: 'Povolit vše',
                             acceptNecessaryBtn: 'Povolit jen nezbytné'
                         }
@@ -59,7 +87,15 @@
             },
             onConsent: (cookie) => {
                 const ok = new Set(cookie?.categories || []);
-                if (ok.has('marketing')) loadMetaPixel('1016873180466291');
+
+                if (ok.has('marketing')) {
+                    loadMetaPixel('1016873180466291');
+                    loadGoogleTag('AW-17512040775', {
+                        ad_user_data: 'granted',
+                        ad_personalization: 'granted',
+                        ad_storage: 'granted'
+                    });
+                }
             },
             onChange(cookie) { this.onConsent(cookie); }
         });
