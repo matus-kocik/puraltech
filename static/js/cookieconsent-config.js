@@ -56,19 +56,59 @@
       if (typeof window.gtag === 'function') gtag('consent', 'update', grants);
     };
 
+    // Activate <script type="text/plain" data-cc="..."> placeholders in <head> after consent
+    const activateHeadScripts = (category) => {
+      document
+        .querySelectorAll(`script[type="text/plain"][data-cc~="${category}"]`)
+        .forEach((srcEl) => {
+          const s = document.createElement('script');
+          const dataSrc = srcEl.getAttribute('data-src');
+
+          if (dataSrc) {
+            s.src = dataSrc;
+            s.async = true;
+          } else {
+            s.text = srcEl.textContent || '';
+          }
+
+          // preserve non-CC attributes
+          [...srcEl.attributes].forEach((a) => {
+            if (!['type', 'data-cc', 'data-src', 'id'].includes(a.name)) {
+              s.setAttribute(a.name, a.value);
+            }
+          });
+
+          srcEl.parentNode.replaceChild(s, srcEl);
+        });
+    };
+
     // Apply current preferences (used for first accept, page loads, and changes)
     function handleConsent(cookie) {
       const categories = cookie?.categories || cookie?.cookie?.categories || [];
       const ok = new Set(categories);
 
-      // Marketing → Meta Pixel + Google Ads
+      // Marketing → activate head placeholders first, then ensure gtag is present
       if (ok.has('marketing')) {
+        activateHeadScripts('marketing');
+
+        // Start Meta Pixel (idempotent)
         loadMetaPixel('1016873180466291');
-        loadGoogleTag('AW-17512040775', {
-          ad_user_data: 'granted',
-          ad_personalization: 'granted',
-          ad_storage: 'granted'
-        });
+
+        // Ensure Google Ads tag is live (if not activated via placeholder)
+        if (!window.gtag) {
+          loadGoogleTag('AW-17512040775', {
+            ad_user_data: 'granted',
+            ad_personalization: 'granted',
+            ad_storage: 'granted'
+          });
+        } else {
+          // Update consent if gtag already exists
+          updateGoogleConsent({
+            ad_user_data: 'granted',
+            ad_personalization: 'granted',
+            ad_storage: 'granted'
+          });
+        }
       } else {
         updateGoogleConsent({
           ad_user_data: 'denied',
@@ -77,14 +117,14 @@
         });
       }
 
-      // Analytics → GA4 (runs only after analytics consent)
+      // Analytics → aktivuj placeholdery v <head>, potom fallback
       if (ok.has('analytics')) {
-        if (window.__trackingLoaded.ga && typeof window.gtag === 'function') {
-          // gtag.js already present (e.g., via AW): just configure GA4
+        activateHeadScripts('analytics');
+
+        if (window.gtag) {
           gtag('config', 'G-EBBS6EMRRT');
           gtag('consent', 'update', { analytics_storage: 'granted' });
         } else {
-          // Load GA4 standalone when Ads (AW) is not loaded
           loadGoogleTag('G-EBBS6EMRRT', { analytics_storage: 'granted' });
         }
         updateGoogleConsent({ analytics_storage: 'granted' });
